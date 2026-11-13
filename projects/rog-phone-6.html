@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROG Phone 6 — Kuo Kai Liao</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF; --mist:#F5F5F7; --ink:#1D1D1F; --slate:#6E6E73; --hair:#D2D2D7;
+    --sans:-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    --r:18px; --shadow:0 14px 44px rgba(0,0,0,0.08);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; font-size:17px;}
+  body{-webkit-user-select:none; -moz-user-select:none; user-select:none;}
+  ::selection{background:var(--ink); color:var(--paper);}
+  img, video{-webkit-user-drag:none; user-drag:none; -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent;}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+
+  header.nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid rgba(0,0,0,0.06);}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; max-width:1080px; margin:0 auto; padding:16px 32px;}
+  @media(max-width:640px){.nav-inner{padding:14px 22px;}}
+  .wordmark{font-weight:600; font-size:17px; letter-spacing:-0.01em;}
+  .nav-right{display:flex; align-items:center; gap:30px;}
+  .nav-links{display:flex; gap:28px; font-size:15px; font-weight:400;}
+  .nav-links a{color:var(--slate); transition:color .2s;}
+  .nav-links a:hover{color:var(--ink);}
+  .lang-toggle{display:flex; align-items:center; gap:9px; font-size:14px; font-weight:400;}
+  .lang-toggle a{color:var(--hair); transition:color .2s;}
+  .lang-toggle a:hover{color:var(--slate);}
+  .lang-toggle a.lt-active{color:var(--ink);}
+  .lang-toggle .lt-sep{color:var(--hair);}
+  @media(max-width:700px){.nav-links{display:none;}}
+
+  .breadcrumb{padding:36px 0 20px; font-size:14px; color:var(--slate);}
+  .breadcrumb a{transition:color .2s;}
+  .breadcrumb a:hover{color:var(--ink);}
+  .breadcrumb .sep{margin:0 9px; color:var(--hair);}
+
+  .p-hero{padding:20px 0 clamp(48px,7vw,72px); border-bottom:1px solid var(--hair); margin-bottom:clamp(48px,7vw,80px);}
+  .p-kicker{font-size:15px; color:var(--slate); margin-bottom:22px;}
+  .p-title{font-weight:600; letter-spacing:-0.03em; font-size:clamp(38px,6.5vw,80px); line-height:1.04; color:var(--ink);}
+  .p-client{margin-top:18px; font-size:16px; color:var(--slate);}
+  .p-meta{margin-top:48px; display:flex; flex-wrap:wrap; gap:clamp(28px,5vw,64px);}
+  .p-meta .cell{min-width:0;}
+  .p-meta .k{font-size:13px; color:var(--slate); margin-bottom:7px;}
+  .p-meta .v{font-size:17px; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+
+  .block{padding-bottom:clamp(64px,10vw,110px);}
+  .block:last-of-type{padding-bottom:clamp(40px,6vw,64px);}
+  .block-figure{width:100%; height:auto; display:block; margin-bottom:clamp(36px,5vw,56px); cursor:zoom-in; border-radius:var(--r); box-shadow:var(--shadow); background:var(--mist);}
+  .block-figure.vid{cursor:default;}
+  .block-text{max-width:680px; margin:0 auto; padding:0 4px;}
+  .block-num{font-size:14px; color:var(--slate); font-weight:500; margin-bottom:12px;}
+  .block-heading{font-weight:600; font-size:clamp(26px,3.6vw,38px); letter-spacing:-0.025em; line-height:1.12; color:var(--ink);}
+  .block-body{margin-top:20px;}
+  .block-body p{font-size:17px; color:#3a3a3c; line-height:1.72; margin-bottom:16px;}
+  .block-body ul{list-style:none; margin-top:10px;}
+  .block-body ul li{font-size:16px; color:#3a3a3c; padding-left:20px; position:relative; margin-bottom:12px; line-height:1.7;}
+  .block-body ul li::before{content:""; position:absolute; left:0; top:11px; width:5px; height:5px; border-radius:50%; background:var(--hair);}
+  .block-body ul li strong{font-weight:600; color:var(--ink);}
+  .quote-note{margin-top:28px; padding:24px 28px; background:var(--mist); border-radius:var(--r); font-size:16px; color:#3a3a3c; line-height:1.7;}
+
+  .nda-banner{background:var(--mist); padding:20px 24px; margin-bottom:clamp(40px,6vw,56px); border-radius:var(--r); display:flex; gap:12px; align-items:flex-start; font-size:15px; color:#3a3a3c; line-height:1.6;}
+  .nda-banner .icon{font-size:18px; flex-shrink:0;}
+
+  .p-footer{padding:clamp(48px,7vw,64px) 0 40px; border-top:1px solid var(--hair); display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;}
+  .p-footer a{font-size:16px; font-weight:500; color:var(--ink); border-bottom:1px solid var(--hair); padding-bottom:4px; transition:border-color .2s;}
+  .p-footer a:hover{border-color:var(--ink);}
+  footer{padding:32px 0 48px; display:flex; justify-content:space-between; font-size:13px; color:var(--slate);}
+  @media(max-width:600px){footer{flex-direction:column; gap:8px;}}
+
+  .lightbox{position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.92); display:none; align-items:center; justify-content:center; padding:40px; cursor:zoom-out;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;}
+  .lightbox-close{position:absolute; top:22px; right:28px; color:#fff; font-size:22px; cursor:pointer; opacity:0.7; transition:opacity .2s;}
+  .lightbox-close:hover{opacity:1;}
+
+  .reveal{opacity:1; transform:none;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1; transform:none; transition:none;} html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="wordmark">Kuo Kai Liao</a>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#expertise">Expertise</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="lang-toggle"><a class="lt-active" href="rog-phone-6.html">中文</a><span class="lt-sep">|</span><a href="rog-phone-6-en.html">EN</a></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../index.html#work">Selected Work</a>
+    <span class="sep">/</span>
+    <span>ROG Phone 6</span>
+  </div>
+
+  <section class="p-hero">
+    <div class="p-kicker">Project — Gaming Hardware</div>
+    <h1 class="p-title">ROG Phone 6</h1>
+    <div class="p-client">ASUS · 2022</div>
+    <div class="p-meta">
+      <div class="cell"><div class="k">產品類型</div><div class="v">電競旗艦手機</div></div>
+      <div class="cell"><div class="k">核心挑戰</div><div class="v">散熱的儀式感</div></div>
+      <div class="cell"><div class="k">我的角色</div><div class="v">散熱概念提案 · 光效 Artworks</div></div>
+      <div class="cell"><div class="k">階段</div><div class="v">量產上市</div></div>
+    </div>
+  </section>
+
+  <!-- 產品總覽 -->
+  <section style="margin-bottom:40px;">
+    <img class="block-figure" src="images/rogphone6-hero.jpg" alt="ROG Phone 6 雙機背面光效" style="margin-bottom:0;" onclick="openLightbox(this.src)">
+  </section>
+
+  <!-- 我的貢獻 -->
+  <section style="margin-bottom:80px;">
+    <div class="block-text">
+      <div class="block-num">My Role — 我的貢獻</div>
+      <div class="block-body">
+        <ul>
+          <li><strong>高階款(Ultimate):</strong> 散熱開合方式的草圖概念提案 —— 此方案獲選為高階機種採用的散熱方式,後續由團隊接續完成。</li>
+          <li><strong>標準款(Standard):</strong> 背面膜片光效 Artworks —— 由我負責設計。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 01: 痛點 -->
+  <section class="block reveal">
+    <div class="block-text">
+      <div class="block-num">01 — The Problem</div>
+      <h2 class="block-heading">散熱,是電競手機的生死線</h2>
+      <div class="block-body">
+        <p>電競手機的核心矛盾很殘酷:玩家要的是長時間、高幀數的穩定效能,但手機在持續高負載下必然發熱、進而降頻 —— 散熱做不好,整台旗艦的效能承諾就瓦解。</p>
+        <p>然而市面上多數散熱方案,都是「藏起來的工程妥協」:外掛風扇、隱藏開孔,功能有了,卻既不美觀、也沒有情感價值。對 ROG 這種以「信仰感」驅動的電競品牌而言,這是一個被浪費掉的機會 —— 散熱不該只是工程問題,它該是一個能強化品牌認同的體驗。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 02: 洞察 -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/rogphone6-insight.jpg" alt="ROG Phone 6 散熱風門實體開啟情境" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">02 — The Insight</div>
+      <h2 class="block-heading">不要藏起來,要秀出來</h2>
+      <div class="block-body">
+        <p>我的切入點很直接:玩家對 ROG 的忠誠,來自「這是為我這種人打造的」儀式感。所以散熱機構不該被藏起來,反而該被放大成一個值得炫耀的動態時刻 —— 就像超跑的主動式升降尾翼,功能與情感同時成立。</p>
+        <p>這個方向從最早的手繪草圖就開始成形。我以獨立提案的方式,從概念發想一路推進到 3D 建模,把「可開合、會動、看得見」的散熱儀式感定義成設計主軸。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 03: 解法 -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/rogphone6-2.jpg" alt="ROG Phone 6 散熱開合機構細節" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">03 — The Solution</div>
+      <h2 class="block-heading">把散熱閥門,變成機械儀式</h2>
+      <div class="block-body">
+        <p>最終定案的設計,把高負載散熱閥門轉化為宛如跑車「主動式升降尾翼」的開合機構 —— 當玩家進入高強度對戰、裝上散熱配件,背面的風門會實體開啟,把冷空氣直送處理器。性能需求的那一刻,同時成為一個被看見、值得炫耀的高端機械時刻。</p>
+        <ul>
+          <li><strong>高階款(Ultimate)動態散熱機構:</strong> 可開合的實體風門,讓散熱從「隱藏的妥協」變成「外顯的儀式」。</li>
+          <li><strong>標準款(Standard)光效設計:</strong> 採用背面膜片光效,延續前代的點陣光效語彙,並略帶 LOGO 移動的速度感,喚起超跑美學。</li>
+        </ul>
+      </div>
+    </div>
+    <video class="block-figure vid" src="images/rogphone6-anim.mp4" style="margin-top:4px;" autoplay loop muted playsinline controlslist="nodownload noremoteplayback" disablepictureinpicture oncontextmenu="return false"></video>
+  </section>
+
+  <!-- BLOCK 04: 成果 -->
+  <section class="block reveal">
+    <div class="block-text">
+      <div class="block-num">04 — The Impact</div>
+      <h2 class="block-heading">從草圖,到旗艦頂規的招牌功能</h2>
+      <div class="block-body">
+        <p>這個方向從我的草圖概念出發,歷經最後幾輪提案的反覆收斂,在團隊的共同努力下成功被採用,並進入 ASUS 的年度產品 roadmap,最終量產為 ROG Phone 6 Ultimate 旗艦頂規款上的招牌散熱機構(AeroActive Portal)—— 從一張草圖,成為定義這台旗艦的關鍵差異化功能。</p>
+        <ul>
+          <li><strong>散熱效能:</strong> 風門開啟後,每秒直送約 1 公升冷空氣至處理器,散熱速度較未開啟時快約 9 倍。</li>
+          <li><strong>實測表現:</strong> 在風扇模式下即可壓低約 10°C,是其他 ROG 機型需開啟 Frozen Mode 才能達到的效果。</li>
+        </ul>
+        <div class="quote-note">
+          這個案子最能代表我的設計主張:好的設計不只是解決工程問題(散熱),而是把那個解法,轉化成讓使用者「想被看見、願意炫耀」的情感體驗。
+        </div>
+      </div>
+    </div>
+    <img class="block-figure" src="images/rogphone6-sketchwall.jpg" alt="ROG Phone 6 設計發想草圖牆" style="margin-top:56px; margin-bottom:12px;" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num" style="text-align:center;">從一張草圖開始 —— 概念發想過程</div>
+    </div>
+  </section>
+
+  <div class="p-footer">
+    <a href="../index.html#work">← 返回作品集</a>
+    <a href="../index.html#contact">聯絡我 →</a>
+  </div>
+
+  <footer>
+    <div>© 2026 Kuo Kai Liao</div>
+    <div>Taipei, Taiwan</div>
+  </footer>
+
+</main>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close">✕</div>
+  <img id="lightboxImg" src="" alt="放大檢視">
+</div>
+
+<script>
+  function openLightbox(src){
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+  document.addEventListener('contextmenu', function(e){ if(e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO'){ e.preventDefault(); } });
+  document.addEventListener('dragstart', function(e){ if(e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO'){ e.preventDefault(); } });
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

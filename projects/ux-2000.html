@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UX-2000 — Kuo Kai Liao</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF; --mist:#F5F5F7; --ink:#1D1D1F; --slate:#6E6E73; --hair:#D2D2D7;
+    --sans:-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    --r:18px; --shadow:0 14px 44px rgba(0,0,0,0.08);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.5; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; font-size:17px;}
+  body{-webkit-user-select:none; -moz-user-select:none; user-select:none;}
+  ::selection{background:var(--ink); color:var(--paper);}
+  img, video{-webkit-user-drag:none; user-drag:none; -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent;}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+
+  header.nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid rgba(0,0,0,0.06);}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; max-width:1080px; margin:0 auto; padding:16px 32px;}
+  @media(max-width:640px){.nav-inner{padding:14px 22px;}}
+  .wordmark{font-weight:600; font-size:17px; letter-spacing:-0.01em;}
+  .nav-right{display:flex; align-items:center; gap:30px;}
+  .nav-links{display:flex; gap:28px; font-size:15px; font-weight:400;}
+  .nav-links a{color:var(--slate); transition:color .2s;}
+  .nav-links a:hover{color:var(--ink);}
+  .lang-toggle{display:flex; align-items:center; gap:9px; font-size:14px; font-weight:400;}
+  .lang-toggle a{color:var(--hair); transition:color .2s;}
+  .lang-toggle a:hover{color:var(--slate);}
+  .lang-toggle a.lt-active{color:var(--ink);}
+  .lang-toggle .lt-sep{color:var(--hair);}
+  @media(max-width:700px){.nav-links{display:none;}}
+
+  .breadcrumb{padding:36px 0 20px; font-size:14px; color:var(--slate);}
+  .breadcrumb a{transition:color .2s;}
+  .breadcrumb a:hover{color:var(--ink);}
+  .breadcrumb .sep{margin:0 9px; color:var(--hair);}
+
+  .p-hero{padding:20px 0 clamp(48px,7vw,72px); border-bottom:1px solid var(--hair); margin-bottom:clamp(48px,7vw,80px);}
+  .p-kicker{font-size:15px; color:var(--slate); margin-bottom:22px;}
+  .p-title{font-weight:600; letter-spacing:-0.03em; font-size:clamp(38px,6.5vw,80px); line-height:1.04; color:var(--ink);}
+  .p-client{margin-top:18px; font-size:16px; color:var(--slate);}
+  .p-meta{margin-top:48px; display:flex; flex-wrap:wrap; gap:clamp(28px,5vw,64px);}
+  .p-meta .cell{min-width:0;}
+  .p-meta .k{font-size:13px; color:var(--slate); margin-bottom:7px;}
+  .p-meta .v{font-size:17px; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+
+  .block{padding-bottom:clamp(64px,10vw,110px);}
+  .block:last-of-type{padding-bottom:clamp(40px,6vw,64px);}
+  .block-figure{width:100%; height:auto; display:block; margin-bottom:clamp(36px,5vw,56px); cursor:zoom-in; border-radius:var(--r); box-shadow:var(--shadow); background:var(--mist);}
+  .block-figure.vid{cursor:default;}
+  .block-text{max-width:680px; margin:0 auto; padding:0 4px;}
+  .block-num{font-size:14px; color:var(--slate); font-weight:500; margin-bottom:12px;}
+  .block-heading{font-weight:600; font-size:clamp(26px,3.6vw,38px); letter-spacing:-0.025em; line-height:1.12; color:var(--ink);}
+  .block-body{margin-top:20px;}
+  .block-body p{font-size:17px; color:#3a3a3c; line-height:1.72; margin-bottom:16px;}
+  .block-body ul{list-style:none; margin-top:10px;}
+  .block-body ul li{font-size:16px; color:#3a3a3c; padding-left:20px; position:relative; margin-bottom:12px; line-height:1.7;}
+  .block-body ul li::before{content:""; position:absolute; left:0; top:11px; width:5px; height:5px; border-radius:50%; background:var(--hair);}
+  .block-body ul li strong{font-weight:600; color:var(--ink);}
+  .quote-note{margin-top:28px; padding:24px 28px; background:var(--mist); border-radius:var(--r); font-size:16px; color:#3a3a3c; line-height:1.7;}
+
+  .nda-banner{background:var(--mist); padding:20px 24px; margin-bottom:clamp(40px,6vw,56px); border-radius:var(--r); display:flex; gap:12px; align-items:flex-start; font-size:15px; color:#3a3a3c; line-height:1.6;}
+  .nda-banner .icon{font-size:18px; flex-shrink:0;}
+
+  .p-footer{padding:clamp(48px,7vw,64px) 0 40px; border-top:1px solid var(--hair); display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;}
+  .p-footer a{font-size:16px; font-weight:500; color:var(--ink); border-bottom:1px solid var(--hair); padding-bottom:4px; transition:border-color .2s;}
+  .p-footer a:hover{border-color:var(--ink);}
+  footer{padding:32px 0 48px; display:flex; justify-content:space-between; font-size:13px; color:var(--slate);}
+  @media(max-width:600px){footer{flex-direction:column; gap:8px;}}
+
+  .lightbox{position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.92); display:none; align-items:center; justify-content:center; padding:40px; cursor:zoom-out;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;}
+  .lightbox-close{position:absolute; top:22px; right:28px; color:#fff; font-size:22px; cursor:pointer; opacity:0.7; transition:opacity .2s;}
+  .lightbox-close:hover{opacity:1;}
+
+  .reveal{opacity:1; transform:none;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1; transform:none; transition:none;} html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="wordmark">Kuo Kai Liao</a>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#expertise">Expertise</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <div class="lang-toggle"><a class="lt-active" href="ux-2000.html">中文</a><span class="lt-sep">|</span><a href="ux-2000-en.html">EN</a></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../index.html#work">Selected Work</a>
+    <span class="sep">/</span>
+    <span>UX-2000</span>
+  </div>
+
+  <section class="p-hero">
+    <div class="p-kicker">Project 03 — Machine Tool Design</div>
+    <h1 class="p-title">UX-2000</h1>
+    <div class="p-client">瀧澤科技 Takizawa · 2020</div>
+    <div class="p-meta">
+      <div class="cell"><div class="k">產品類型</div><div class="v">五軸加工中心機</div></div>
+      <div class="cell"><div class="k">關鍵挑戰</div><div class="v">造型 DNA 建立</div></div>
+      <div class="cell"><div class="k">提案方案</div><div class="v">TYPE A / B / C</div></div>
+      <div class="cell"><div class="k">階段</div><div class="v">量產落地</div></div>
+    </div>
+  </section>
+
+  <!-- BLOCK 01: 競品研究 -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/ux-1-competitor.jpg" alt="競品設計觀點 — DMG NTX 的 ID 語彙分析" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">01</div>
+      <h2 class="block-heading">Competitive Analysis</h2>
+      <div class="block-body">
+        <p>設計的起點是深入研究市場上高階工具機品牌的 ID 語彙。透過拆解 DMG、Mazak、DOOSAN 等競品的造型 DNA,才能為 TAKIZAWA 定位出既有辨識度、又符合自身品牌調性的設計方向。</p>
+        <ul>
+          <li><strong>DMG NTX:</strong> 刀庫窗不對稱斜角(與銑床相似的符號)、機台鈑金上下天地側邊角用大圓弧、白色為主色黑色修飾,讓白色看起來更動感。</li>
+          <li><strong>Mazak / DOOSAN:</strong> 四邊轉面圓角、模組化構件、大面積標籤印刷帶出品牌識別 —— 各品牌都有一套辨識系統。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 02: Personal Insight -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/ux-2-insight.jpg" alt="Personal Insight — 競品研究的設計收斂" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">02</div>
+      <h2 class="block-heading">Design Insight</h2>
+      <div class="block-body">
+        <p>作為機台的實際使用者,我把設計思考建立在對真實工具機的觀察上——相較於服裝設計或消費電子設計,工具機設計必須以功能為優先,再從功能限制中提煉出屬於 TAKIZAWA 的造型語彙。</p>
+        <p>DOOSAN 在造型處理上以斜切為主;DMG 以斜面連續性與大圓弧見長;Mazak 以大面積標籤與內斂配色識別。綜合這些觀點,TAKIZAWA 的設計應在有序的線條上、有一定的規則,同時傳達科技感與穩定的體驗識別。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 03: TYPE_A -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/ux-4-typea.jpg" alt="TYPE_A 主視覺方案" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">03</div>
+      <h2 class="block-heading">TYPE_A</h2>
+      <div class="block-body">
+        <p>第一個提案方向,採用不同的鈑金區域堆疊與包覆邏輯,營造層次感,並導入「太空未來」的意象作為造型主題。</p>
+        <ul>
+          <li><strong>層疊包覆:</strong> 利用鈑金不同區域的堆疊與包覆,建立豐富的量體層次。</li>
+          <li><strong>大透窗設計:</strong> 標籤與大反光印刷,增加細節層次與科技識別。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 04: 太空未來概念 -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/ux-5-space.jpg" alt="太空未來設計概念" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">04</div>
+      <h2 class="block-heading">Space Future Concept</h2>
+      <div class="block-body">
+        <p>「太空未來」是貫穿 TYPE_A 的核心概念。四面利用直角大面積曲面設計,強調鈑金拼接色隨曲線層疊,呼應太空元素的無框、大量體美學。</p>
+        <div class="quote-note">
+          在 2020 年這個環境生態、政治、經濟劇烈變動的一年,設計上以太空旅行、全面體驗、無框作為關鍵字,傳達對未知世界的探索與個性化主張。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 05: TYPE_B -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/ux-6-typeb.jpg" alt="TYPE_B 主視覺方案" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">05</div>
+      <h2 class="block-heading">TYPE_B</h2>
+      <div class="block-body">
+        <p>第二個提案方向,以解構拼接與黑階配色為主軸,呈現更沉穩、內斂的高階工業感。</p>
+        <ul>
+          <li><strong>解構拼接:</strong> 利用板金製程特性,強調直角與大面積標籤高反光印刷,呈現硬派工業美學。</li>
+          <li><strong>大 LOGO 應用:</strong> 使用大 LOGO 的標籤化印刷於表面,在間合面增添多一道層次疊層形式。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 06: TYPE_C -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/ux-3-typec.jpg" alt="TYPE_C 主視覺方案" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">06</div>
+      <h2 class="block-heading">TYPE_C</h2>
+      <div class="block-body">
+        <p>第三個提案方向,以斜切造型作為主要語彙,呼應競品研究中歸納出的工具機造型符號,同時建立清晰的視覺重心與方向感。</p>
+        <ul>
+          <li><strong>斜切方向:</strong> 以連續的斜切面建立產品的視覺動勢與方向識別。</li>
+          <li><strong>兩段式拉門:</strong> 最大開門距達 1300mm,兼顧操作可及性與內部維護空間。</li>
+        </ul>
+        <div class="quote-note">
+          設計流程:在進入 3D 建模之前,我先依據正確的機台尺寸與人因關係,使用 Illustrator 繪製 2D 平面圖,確立各視角的比例、操作可及性與量體基準,再據此進行 3D 建模。
+        </div>
+      </div>
+    </div>
+    <img class="block-figure" src="images/ux-2d-drawing.jpg" alt="UX-2000 Illustrator 2D 平面圖 — 尺寸標註與人因比例" style="margin-top:48px;" onclick="openLightbox(this.src)">
+  </section>
+
+  <!-- BLOCK 07: 深色系配置 -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/ux-7-dark.jpg" alt="三方案深色系配色總覽" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">07</div>
+      <h2 class="block-heading">Dark Colorway</h2>
+      <div class="block-body">
+        <p>將 TYPE_A、TYPE_B、TYPE_C 三種方案套上一致的深色系配色,並排比較,驗證造型語彙在同一套 CMF 系統下的一致性與識別度。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 08: 淺色系配置 -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/ux-8-light.jpg" alt="三方案淺色系配色總覽" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">08</div>
+      <h2 class="block-heading">Light Colorway</h2>
+      <div class="block-body">
+        <p>同樣的三種方案套上淺色系配色,與深色系對照,完整呈現 CMF 系統的延展性,協助決策者從造型與配色兩個維度綜合評估。</p>
+        <div class="quote-note">
+          三種主題提案中,最終一款成功推進至量產;透過系統性的競品研究與配色驗證,確立並開創了 TAKIZAWA 的造型 DNA。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK 09: 結語 -->
+  <section class="block reveal">
+    <img class="block-figure" src="images/ux-9-conclusion.jpg" alt="設計理念結語" onclick="openLightbox(this.src)">
+    <div class="block-text">
+      <div class="block-num">09</div>
+      <h2 class="block-heading">Closing</h2>
+      <div class="block-body">
+        <p>從環境生態、政治、經濟、人文與科學上劇烈變動的 2020 年出發,這份提案嘗試將時代情緒轉化為工具機的造型語言,以「太空旅行、全面體驗、無框」為主題,把黑階與解構拼接融入產品設計,傳達對未來世界的個性化展望。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="p-footer">
+    <a href="../index.html#work">← 返回作品集</a>
+    <a href="../index.html#contact">聯絡我 →</a>
+  </div>
+
+  <footer>
+    <div>© 2026 Kuo Kai Liao</div>
+    <div>Taipei, Taiwan</div>
+  </footer>
+
+</main>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close">✕</div>
+  <img id="lightboxImg" src="" alt="放大檢視">
+</div>
+
+<script>
+  function openLightbox(src){
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+  document.addEventListener('contextmenu', function(e){ if(e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO'){ e.preventDefault(); } });
+  document.addEventListener('dragstart', function(e){ if(e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO'){ e.preventDefault(); } });
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

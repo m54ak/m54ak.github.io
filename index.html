@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuo Kai Liao — Industrial Designer</title>
+<meta name="description" content="廖國凱 Kuo Kai Liao — 工業設計師,專注造型、CMF 與產品體驗,以精密模具與量產工程為底。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --mist:#F5F5F7;
+    --ink:#1D1D1F;
+    --slate:#6E6E73;
+    --hair:#D2D2D7;
+    --sans:-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    --r:18px;
+    --shadow:0 14px 44px rgba(0,0,0,0.08);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--sans); line-height:1.5;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    font-size:17px;
+  }
+  ::selection{background:var(--ink); color:var(--paper);}
+  body{-webkit-user-select:none; -moz-user-select:none; user-select:none;}
+  #contact a, #contact .clink{-webkit-user-select:text; user-select:text;}
+  img, video{
+    -webkit-user-drag:none; user-drag:none; -webkit-touch-callout:none;
+    -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+  .bleed{position:relative; left:50%; transform:translateX(-50%); width:min(1320px, 92vw);}
+
+  /* NAV */
+  header.nav{position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid rgba(0,0,0,0.06);}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; max-width:1080px; margin:0 auto; padding:16px 32px;}
+  @media(max-width:640px){.nav-inner{padding:14px 22px;}}
+  .wordmark{font-weight:600; font-size:17px; letter-spacing:-0.01em;}
+  .nav-right{display:flex; align-items:center; gap:30px;}
+  .nav-links{display:flex; gap:28px; font-size:15px; font-weight:400;}
+  .nav-links a{color:var(--slate); transition:color .2s;}
+  .nav-links a:hover{color:var(--ink);}
+  .lang-toggle{display:flex; align-items:center; gap:9px; font-size:14px; font-weight:400;}
+  .lang-toggle a{color:var(--hair); transition:color .2s;}
+  .lang-toggle a:hover{color:var(--slate);}
+  .lang-toggle a.lt-active{color:var(--ink);}
+  .lang-toggle .lt-sep{color:var(--hair);}
+  @media(max-width:700px){.nav-links{display:none;}}
+
+  /* HERO */
+  .hero{text-align:center; padding:clamp(80px,13vw,150px) 0 clamp(60px,9vw,110px);}
+  .hero-photo{width:92px; height:92px; border-radius:50%; overflow:hidden; margin:0 auto 34px; box-shadow:0 2px 10px rgba(0,0,0,0.08);}
+  .hero-photo img{width:100%; height:100%; object-fit:cover;}
+  .hero-kicker{font-size:15px; color:var(--slate); margin-bottom:26px; font-weight:400;}
+  h1.hero-title{font-weight:600; letter-spacing:-0.03em; font-size:clamp(40px,7.5vw,92px); line-height:1.03; color:var(--ink);}
+  .hero-lede{margin:30px auto 0; max-width:600px; font-size:clamp(18px,2.1vw,22px); color:var(--slate); line-height:1.55; font-weight:400;}
+  .hero-stats{margin-top:56px; display:flex; justify-content:center; gap:clamp(32px,6vw,72px); flex-wrap:wrap;}
+  .hero-stats .st{text-align:center;}
+  .hero-stats .st .k{font-size:13px; color:var(--slate); margin-bottom:6px;}
+  .hero-stats .st .v{font-size:19px; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+
+  /* SECTIONS */
+  section{padding:clamp(72px,11vw,140px) 0;}
+  .sec-tint{background:var(--mist);}
+  .sec-title{font-size:clamp(28px,4.2vw,46px); font-weight:600; letter-spacing:-0.025em; color:var(--ink); line-height:1.08;}
+  .sec-intro{margin-top:18px; max-width:560px; font-size:18px; color:var(--slate); line-height:1.55;}
+
+  /* EXPERTISE */
+  .xp-statement{margin-top:44px; max-width:860px;}
+  .xp-statement p{font-size:clamp(19px,2.3vw,24px); line-height:1.55; color:var(--ink); font-weight:400; letter-spacing:-0.01em;}
+  .xp-statement p + p{margin-top:24px; font-size:18px; color:var(--slate); letter-spacing:0;}
+  .skills{margin-top:64px; display:grid; grid-template-columns:repeat(4,1fr); gap:40px 32px;}
+  @media(max-width:860px){.skills{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.skills{grid-template-columns:1fr;}}
+  .skill-group .sg-label{font-size:14px; font-weight:600; color:var(--ink); margin-bottom:16px;}
+  .pill-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .pill{font-size:13.5px; padding:7px 14px; background:var(--paper); border-radius:980px; color:var(--slate); line-height:1.3;}
+  .sec-tint .pill{background:var(--paper);}
+  .xp-plain .pill{background:var(--mist);}
+
+  /* EXPERIENCE */
+  .exp{margin-top:48px;}
+  .exp-row{padding:30px 0; border-bottom:1px solid var(--hair);}
+  .exp-row:first-child{border-top:1px solid var(--hair);}
+  .exp-head{display:flex; justify-content:space-between; align-items:baseline; gap:18px; flex-wrap:wrap;}
+  .exp-role{font-size:20px; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  .exp-mode{font-size:14px; color:var(--slate); font-weight:400; margin-left:10px;}
+  .exp-company{font-size:15px; color:var(--slate); margin-top:5px;}
+  .exp-date{font-size:15px; color:var(--slate); white-space:nowrap;}
+  .exp-points{list-style:none; margin-top:20px; max-width:780px;}
+  .exp-points li{font-size:15px; color:#3a3a3c; line-height:1.68; margin-bottom:11px; padding-left:20px; position:relative;}
+  .exp-points li::before{content:""; position:absolute; left:0; top:10px; width:5px; height:5px; border-radius:50%; background:var(--hair);}
+  .exp-points li strong{font-weight:600; color:var(--ink);}
+
+  /* WORK */
+  .work-intro{margin-bottom:clamp(48px,7vw,84px);}
+  .proj{padding:clamp(60px,9vw,120px) 0; border-bottom:1px solid var(--hair);}
+  .proj:first-of-type{padding-top:clamp(40px,5vw,56px);}
+  .proj:last-of-type{border-bottom:none;}
+  .proj-media{display:flex; flex-direction:column; gap:16px;}
+  .proj-media img, .proj-media video{width:100%; border-radius:var(--r); box-shadow:var(--shadow); background:var(--mist);}
+  .proj-media .row2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:640px){.proj-media .row2{grid-template-columns:1fr;}}
+  .proj-cap{max-width:680px; margin:clamp(32px,4vw,48px) auto 0; text-align:center;}
+  .proj-cap .client{font-size:14px; color:var(--slate); margin-bottom:12px;}
+  .proj-cap h3{font-size:clamp(25px,3.2vw,36px); font-weight:600; letter-spacing:-0.025em; color:var(--ink); line-height:1.1;}
+  .proj--feature .proj-cap h3{font-size:clamp(30px,4.2vw,52px);}
+  .proj-desc{margin:18px auto 0; max-width:600px;}
+  .proj-desc p{font-size:16px; color:#3a3a3c; line-height:1.62; margin-bottom:10px;}
+  .proj-tags{margin-top:20px; display:flex; justify-content:center; flex-wrap:wrap; gap:8px;}
+  .proj-tags .pill{background:var(--mist);}
+  .sec-tint .proj-tags .pill{background:var(--paper);}
+  .proj-link{display:inline-block; margin-top:22px; font-size:15px; color:var(--ink); border-bottom:1px solid var(--hair); padding-bottom:3px; transition:border-color .2s;}
+  .proj-link:hover{border-color:var(--ink);}
+
+  /* PROTECTED */
+  .protected{margin-top:clamp(56px,8vw,96px);}
+  .lock-gate{max-width:460px; margin:0 auto; text-align:center; background:var(--mist); border-radius:var(--r); padding:clamp(40px,6vw,64px) 32px;}
+  .lock-gate .lk-icon{font-size:30px; margin-bottom:18px;}
+  .lock-gate h3{font-size:22px; font-weight:600; letter-spacing:-0.01em; margin-bottom:10px;}
+  .lock-gate p{font-size:15px; color:var(--slate); max-width:360px; margin:0 auto 26px; line-height:1.55;}
+  .lock-form{display:flex; gap:10px; max-width:360px; margin:0 auto;}
+  .lock-form input{flex:1; border:1px solid var(--hair); background:var(--paper); border-radius:980px; padding:12px 20px; font-family:inherit; font-size:15px; outline:none; color:var(--ink); transition:border-color .2s;}
+  .lock-form input:focus{border-color:var(--slate);}
+  .lock-form button{border:none; background:var(--ink); color:var(--paper); border-radius:980px; padding:12px 26px; font-family:inherit; font-weight:500; font-size:15px; cursor:pointer; transition:opacity .2s; white-space:nowrap;}
+  .lock-form button:hover{opacity:0.82;}
+  .lock-error{font-size:13px; color:#C0392B; margin-top:16px; display:none;}
+  .locked-content{display:none;}
+  .locked-content.unlocked{display:block;}
+  .pw-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  @media(max-width:760px){.pw-cards{grid-template-columns:1fr;}}
+  .pw-card{display:flex; flex-direction:column; padding:30px 26px; min-height:250px; background:var(--mist); border-radius:var(--r); color:var(--ink); transition:transform .25s ease, box-shadow .25s ease;}
+  .pw-card:hover{transform:translateY(-3px); box-shadow:var(--shadow);}
+  .pw-card-title{font-size:21px; font-weight:600; letter-spacing:-0.01em; margin-bottom:16px; line-height:1.2;}
+  .pw-card-points{list-style:none; flex:1;}
+  .pw-card-points li{font-size:13.5px; color:#3a3a3c; line-height:1.6; margin-bottom:9px; padding-left:16px; position:relative;}
+  .pw-card-points li::before{content:""; position:absolute; left:0; top:9px; width:4px; height:4px; border-radius:50%; background:var(--hair);}
+  .pw-card-cta{font-size:14px; color:var(--slate); margin-top:18px;}
+  .pw-card:hover .pw-card-cta{color:var(--ink);}
+
+  /* CONTACT */
+  #contact{text-align:center;}
+  .contact-title{font-size:clamp(30px,5vw,60px); font-weight:600; letter-spacing:-0.03em; max-width:800px; margin:0 auto; line-height:1.1; color:var(--ink);}
+  .contact-links{margin:clamp(44px,6vw,64px) auto 0; max-width:620px;}
+  .clink{display:flex; align-items:center; justify-content:space-between; padding:20px 4px; border-bottom:1px solid var(--hair); font-size:19px; font-weight:500; transition:opacity .2s;}
+  .clink:first-child{border-top:1px solid var(--hair);}
+  .clink:hover{opacity:0.5;}
+  .clink .clabel{font-size:14px; font-weight:400; color:var(--slate);}
+  footer{padding:36px 0 48px; display:flex; justify-content:space-between; font-size:13px; color:var(--slate);}
+  @media(max-width:600px){footer{flex-direction:column; gap:8px; text-align:center;}}
+
+  /* LIGHTBOX */
+  .lightbox{position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.92); display:none; align-items:center; justify-content:center; padding:40px; cursor:zoom-out;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;}
+  .lightbox-close{position:absolute; top:22px; right:28px; color:#fff; font-size:22px; cursor:pointer; opacity:0.7; transition:opacity .2s;}
+  .lightbox-close:hover{opacity:1;}
+
+  /* one quiet entrance for hero only */
+  .fade-in{opacity:0; transform:translateY(16px); animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;}
+  @keyframes rise{to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion: reduce){.fade-in{animation:none; opacity:1; transform:none;} html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="wordmark">Kuo Kai Liao</div>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="#work">作品</a>
+        <a href="#expertise">專長</a>
+        <a href="#experience">經歷</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+      <div class="lang-toggle"><a class="lt-active" href="index.html">中文</a><span class="lt-sep">|</span><a href="en.html">EN</a></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <div class="wrap">
+    <section class="hero fade-in" style="padding-top:clamp(72px,10vw,120px);">
+      <div class="hero-photo"><img src="images/headshot.jpg" alt="廖國凱 Kuo Kai Liao"></div>
+      <div class="hero-kicker">工業設計師,專注造型、CMF 與產品體驗</div>
+      <h1 class="hero-title">Design shaped by the mold,<br>felt by the user.</h1>
+      <p class="hero-lede">以明確的美學主張出發 —— 洗鍊的造型語言、講究的 CMF 與高端質感,打造有記憶點的產品;深厚的模具與高精密量產工程背景,是讓設計意圖完整落地、如實出廠的底氣。</p>
+      <div class="hero-stats">
+        <div class="st"><div class="k">據點</div><div class="v">Taipei, TW</div></div>
+        <div class="st"><div class="k">經驗</div><div class="v">10+ 年</div></div>
+        <div class="st"><div class="k">領域</div><div class="v">消費電子、先進硬體</div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- EXPERTISE -->
+  <section id="expertise" class="xp-plain">
+    <div class="wrap">
+      <h2 class="sec-title">專長與核心能力</h2>
+      <div class="xp-statement">
+        <p>以清晰的美學主張與造型語言為核心 —— 從形態、CMF 到整體質感,追求洗鍊而有記憶點的產品語彙,並始終以使用者體驗為核心。</p>
+        <p>而深厚的模具與高精密量產工程背景(DFM),是讓美學主張完整落地、如實量產的底氣。歷練橫跨高階消費性電子(ASUS、Ubiquiti)與先進硬體技術(Tron Future),擅長將結構複雜的硬體與工業設備,轉化為兼具質感與商業成熟度的產品。</p>
+      </div>
+      <div class="skills">
+        <div class="skill-group">
+          <div class="sg-label">Core Skills</div>
+          <div class="pill-row">
+            <span class="pill">Sketch</span><span class="pill">Adobe Illustrator</span><span class="pill">Siemens NX</span><span class="pill">Keyshot</span><span class="pill">Innovation Development</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Manufacturing</div>
+          <div class="pill-row">
+            <span class="pill">Casting</span><span class="pill">CAD/CAM</span><span class="pill">CNC</span><span class="pill">Mold Design</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Soft Skills</div>
+          <div class="pill-row">
+            <span class="pill">Vendor Management</span><span class="pill">Cross-functional Collaboration</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">AI Tools</div>
+          <div class="pill-row">
+            <span class="pill">Vizcom</span><span class="pill">Google Flow</span><span class="pill">Claude</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="sec-tint">
+    <div class="wrap">
+      <h2 class="sec-title">經歷</h2>
+      <div class="exp">
+        <div class="exp-row">
+          <div class="exp-head">
+            <div><div class="exp-role">主任設計師<span class="exp-mode">混合</span></div><div class="exp-company">Tron Future Tech</div></div>
+            <div class="exp-date">May 2023 — Jul 2026</div>
+          </div>
+          <ul class="exp-points">
+            <li><strong>量產品質優化:</strong> 建立現場供應商評估機制以優化零件量產品質,成功降低外觀缺陷率達 15%,並減少產品組裝外觀段差與間隙達 10%。</li>
+            <li><strong>CMF 與耐候規範制定:</strong> 制定符合嚴格 UL 746C F1 戶外耐候標準的高性能 CMF 噴漆塗層策略,有效消除外觀缺陷與結構段差,並確保在惡劣的實地操作環境下仍具備 IP66 防塵防水、抗 UV 等強度。</li>
+            <li><strong>重型包裝工程:</strong> 重新工程化重型包裝結構,以客製化高防撞 10mm AB 防水瓦楞紙與精密裁切的 EPE 泡棉取代高成本的防護防爆箱,成功大幅降低成本約 90%,同時仍嚴格通過國防級運輸生存與跌落測試標準。</li>
+            <li><strong>設計戰略與獲獎使用者體驗:</strong> 藉由建立「化繁為簡」的高階商用產品視覺識別,顛覆傳統軍工硬體生硬剛直的線條;透過優化符合人因工程的觸覺把手,將前瞻使用者體驗注入產品中,並成功榮獲 2025 年度金點最佳設計獎。</li>
+          </ul>
+        </div>
+        <div class="exp-row">
+          <div class="exp-head">
+            <div><div class="exp-role">產品設計師<span class="exp-mode">現場</span></div><div class="exp-company">Ubiquiti Inc.</div></div>
+            <div class="exp-date">Jun 2022 — Jan 2023</div>
+          </div>
+          <ul class="exp-points">
+            <li><strong>端到端產品交付:</strong> 主導 3 款消費級與企業級網通裝置,從概念提案一路推進至大量量產,每個提案皆通過核准並成功規模化出貨。</li>
+            <li><strong>主動式 DFM:</strong> 在設計初期即優化模具幾何、拔模角度與美工槽,縮減模具工序、消除分模線公差風險,並提升機構工程(ME)跨團隊開發效率達 20%。</li>
+            <li><strong>原型驗證與跨團隊整合:</strong> 整合機構、模具與韌體團隊快速佈署功能性原型,在維持高端設計質感的同時,排除可製造性瓶頸。</li>
+          </ul>
+        </div>
+        <div class="exp-row">
+          <div class="exp-head">
+            <div><div class="exp-role">資深工業設計師<span class="exp-mode">現場</span></div><div class="exp-company">ASUSTeK Computer Inc.</div></div>
+            <div class="exp-date">Dec 2019 — May 2022</div>
+          </div>
+          <ul class="exp-points">
+            <li><strong>電競硬體與使用者體驗創新:</strong> 藉由自身對電玩硬體的深度熱愛,洞察常人難以察覺的細微使用者需求;在初期草繪階段即將「科技儀式感」與「情感連結」融入硬體結構設計中,大幅提升整體使用者體驗,並成功贏得 ROG Phone 6 專案的關鍵提案。</li>
+            <li><strong>先進 CMF 渲染與視覺化模擬:</strong> 專精利用高階渲染效果模擬複雜的膜片堆疊視覺效果,將草繪階段的創意美學概念轉化為精準的數位視覺化呈現,以利跨團隊之間的設計對接與溝通。</li>
+          </ul>
+        </div>
+        <div class="exp-row">
+          <div class="exp-head">
+            <div><div class="exp-role">模具設計工程師<span class="exp-mode">現場</span></div><div class="exp-company">WUEI CHIUEN INDUSTRY CO, Ltd</div></div>
+            <div class="exp-date">Mar 2013 — Nov 2019</div>
+          </div>
+          <ul class="exp-points">
+            <li><strong>模具設計與工程執行:</strong> 主導多項高精密模具設計與修改專案;成功將客戶的複雜需求轉化為明確的技術規格與可行的生產目標。</li>
+            <li><strong>高階 CAD 與製程優化:</strong> 精通運用 Siemens NX 進行高階概念設計與逆向工程掃描;與生產團隊及供應商談判以優化製造製程,有效提升現場產線效益與產品實用性。</li>
+          </ul>
+        </div>
+        <div class="exp-row">
+          <div class="exp-head">
+            <div><div class="exp-role">自由接案<span class="exp-mode">遠端</span></div><div class="exp-company">設計顧問 · 產品設計</div></div>
+            <div class="exp-date">Mar 2015 — Present</div>
+          </div>
+          <ul class="exp-points">
+            <li><strong>設計顧問與產品設計:</strong> 以獨立設計顧問身分,為企業客戶提供從概念發想、造型設計到量產落地的全程產品設計服務。</li>
+            <li><strong>國際品牌合作:</strong> 長期與美國科技公司及台灣重工業指標品牌(YAMAHA、瀧澤科技、INNOVA)合作,主導使用者研究、造型開發與可製造性(DFM)設計,協助客戶將結構複雜的機械設備,轉化為兼具質感與量產可行性的產品。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="work-intro">
+        <h2 class="sec-title">精選作品</h2>
+        <p class="sec-intro">精選部分成功由概念定義推進至量產階段的專案,誠摯邀請您透過數位形式探索這些設計實績。</p>
+      </div>
+
+      <!-- 01 Anti-Drone (feature) -->
+      <article class="proj proj--feature">
+        <div class="proj-media bleed">
+          <img src="images/anti-drone-1.jpg" alt="Anti-Drone System (T. Jammer) 1">
+          <img src="images/anti-drone-2.jpg" alt="Anti-Drone System (T. Jammer) 2">
+        </div>
+        <div class="proj-cap">
+          <div class="client">Tron Future · 金點設計獎 2025</div>
+          <h3>Anti-Drone System<br>(T. Jammer)</h3>
+          <div class="proj-desc">
+            <p>建立化繁為簡的高階商用視覺識別,顛覆軍工硬體剛直線條,優化符合人因工程的觸覺把手,榮獲 2025 年度金點最佳設計獎。</p>
+            <p>制定符合 UL 746C F1 戶外耐候標準的高性能 CMF 塗層策略,確保 IP66 防塵防水、抗 UV 強度。</p>
+          </div>
+          <div class="proj-tags"><span class="pill">CMF</span><span class="pill">耐候工程</span><span class="pill">金點設計獎 2025</span></div>
+        </div>
+      </article>
+
+      <!-- 02 NX-1 -->
+      <article class="proj">
+        <div class="proj-media">
+          <div class="row2">
+            <img src="images/nx1-1.jpg" alt="NX-1 1">
+            <img src="images/nx1-2.jpg" alt="NX-1 2">
+          </div>
+        </div>
+        <div class="proj-cap">
+          <div class="client">Tron Future</div>
+          <h3>NX-1</h3>
+          <div class="proj-desc">
+            <p>個人獨立完成的偵查型無人機概念設計,使用 Siemens NX 挑戰流體空氣動力學的 G2/G3 曲面連續性,同時維持嚴謹參數化控制。</p>
+            <p>機身結構專為 3D 列印製程規劃分件分模外殼,平衡碳纖維機臂結構接合與內部電子元件空間限制。</p>
+          </div>
+          <div class="proj-tags"><span class="pill">Siemens NX</span><span class="pill">3D 列印原型</span><span class="pill">自主開發</span></div>
+        </div>
+      </article>
+
+      <!-- 03 UX-2000 -->
+      <article class="proj">
+        <div class="proj-media">
+          <div class="row2">
+            <img src="images/ux2000-1.jpg" alt="UX-2000 1">
+            <img src="images/ux2000-2.jpg" alt="UX-2000 2">
+          </div>
+        </div>
+        <div class="proj-cap">
+          <div class="client">瀧澤科技 Takizawa</div>
+          <h3>UX-2000</h3>
+          <div class="proj-desc">
+            <p>將過去作為機台使用者累積的親身操作痛點,轉化為以使用者為中心的工業設計;三款主題提案中一款成功推進至最終量產。</p>
+            <p>深入分析競品造型發展趨勢,精準定義防護窗比例與整體結構比例,確立 TAKIZAWA 的造型 DNA。</p>
+          </div>
+          <div class="proj-tags"><span class="pill">使用者洞察</span><span class="pill">競品分析</span><span class="pill">量產落地</span></div>
+          <a class="proj-link" href="projects/ux-2000.html">查看案例</a>
+        </div>
+      </article>
+
+      <!-- 04 Power Amp -->
+      <article class="proj">
+        <div class="proj-media">
+          <video src="images/poweramp-1.mp4" autoplay loop muted playsinline controlslist="nodownload noremoteplayback" disablepictureinpicture oncontextmenu="return false"></video>
+          <img src="images/poweramp-2.jpg" alt="Power Amp 2">
+        </div>
+        <div class="proj-cap">
+          <div class="client">Ubiquiti</div>
+          <h3>Power Amp</h3>
+          <div class="proj-desc">
+            <p>整合中央線性馬達(LRA),在旋鈕旋轉時提供精準的實體觸覺反饋與優化阻尼力道。</p>
+            <p>設計可切換「無段式旋轉」與「有段式震動」的自適應控制機制,讓數位介面與實體反饋同步互動。</p>
+          </div>
+          <div class="proj-tags"><span class="pill">觸覺回饋</span><span class="pill">自適應控制</span><span class="pill">硬體 UX</span></div>
+          <a class="proj-link" href="https://store.ui.com/us/zh-tw/products/upl-amp" target="_blank" rel="noopener">官方產品頁</a>
+        </div>
+      </article>
+
+      <!-- 05 G3 Touch -->
+      <article class="proj">
+        <div class="proj-media">
+          <div class="row2">
+            <img src="images/g3touch-1.jpg" alt="G3 Touch Enterprise 1">
+            <img src="images/g3touch-2.jpg" alt="G3 Touch Enterprise 2">
+          </div>
+        </div>
+        <div class="proj-cap">
+          <div class="client">Ubiquiti</div>
+          <h3>G3 Touch Enterprise</h3>
+          <div class="proj-desc">
+            <p>透過廣泛實體模型測試優化產品標誌性橫向架構,交叉驗證使用者手部移動效率數據。</p>
+            <p>導入全新後側外殼幾何擺放方式,賦予產品全新視覺識別與更優異的線材收納體驗。</p>
+          </div>
+          <div class="proj-tags"><span class="pill">人因工程</span><span class="pill">實物驗證</span><span class="pill">資料驅動設計</span></div>
+          <a class="proj-link" href="https://store.ui.com/us/zh-tw/category/managed-voip/collections/unifi-new-integrations-phone-executive/products/utp-g3-touch-enterprise" target="_blank" rel="noopener">官方產品頁</a>
+        </div>
+      </article>
+
+      <!-- 06 Intercom -->
+      <article class="proj">
+        <div class="proj-media">
+          <div class="row2">
+            <img src="images/intercom-1.jpg" alt="Intercom 1">
+            <img src="images/intercom-2.jpg" alt="Intercom 2">
+          </div>
+        </div>
+        <div class="proj-cap">
+          <div class="client">Ubiquiti</div>
+          <h3>Intercom</h3>
+          <div class="proj-desc">
+            <p>專注於外殼造型比例的細膩微調,以達到與建築界面的完美和諧,同時精準調校按鈕作動回饋力道。</p>
+            <p>透過多組工程樣品進行盲操觸覺測試,在 3D 外觀策略性維持 0.5mm 運作間隙以容納量產公差。</p>
+          </div>
+          <div class="proj-tags"><span class="pill">比例微調</span><span class="pill">公差控制</span><span class="pill">觸覺體驗</span></div>
+          <a class="proj-link" href="https://tw.store.ui.com/tw/zh-tw/category/door-access-intercoms/collections/access-intercom/products/ua-intercom" target="_blank" rel="noopener">官方產品頁</a>
+        </div>
+      </article>
+
+      <!-- 07 ROG x Ubiquiti -->
+      <article class="proj">
+        <div class="proj-media">
+          <div class="row2">
+            <img src="images/rogxubnt-1.jpg" alt="ROG × Ubiquiti WiFi 1">
+            <img src="images/rogxubnt-2.jpg" alt="ROG × Ubiquiti WiFi 2">
+          </div>
+        </div>
+        <div class="proj-cap">
+          <div class="client">Ubiquiti Design Challenge</div>
+          <h3>ROG × Ubiquiti WiFi</h3>
+          <div class="proj-desc">
+            <p>面試現場限時設計挑戰,題目要求融合 ASUS ROG 電競識別與 Ubiquiti 居家網通產品線的美學語言。</p>
+            <p>選擇用 UFO 造型與光效儀式感,銜接電競的沉浸體驗與網通產品的穩定感知,在時間限制內完成提案(未進入結構工程驗證)。</p>
+          </div>
+          <div class="proj-tags"><span class="pill">限時提案</span><span class="pill">品牌融合</span><span class="pill">概念設計</span></div>
+          <a class="proj-link" href="projects/rog-ubiquiti.html">查看案例</a>
+        </div>
+      </article>
+
+      <!-- 08 ROG Phone 6 (feature) -->
+      <article class="proj proj--feature">
+        <div class="proj-media bleed">
+          <img src="images/rogphone6-1.jpg" alt="ROG Phone 6 1">
+        </div>
+        <div class="proj-cap">
+          <div class="client">ASUS</div>
+          <h3>ROG Phone 6</h3>
+          <div class="proj-desc">
+            <p>電競手機最大的痛點是持續遊戲下的散熱降頻;我把「散熱」這件工程苦差,轉化為宛如跑車升降尾翼的機械儀式感 —— 讓性能需求同時成為品牌情感記憶點。</p>
+            <p>草圖概念提案成功被採用並進入年度 roadmap,量產為 ROG Phone 6 Ultimate 的招牌散熱機構(散熱速度快約 9 倍)。</p>
+          </div>
+          <div class="proj-tags"><span class="pill">機構設計</span><span class="pill">光效互動</span><span class="pill">電競硬體</span></div>
+          <a class="proj-link" href="projects/rog-phone-6.html">查看案例</a>
+        </div>
+      </article>
+
+      <!-- 09 Sketch -->
+      <article class="proj">
+        <div class="proj-media">
+          <img src="images/sketch-2.jpg" alt="Sketch">
+        </div>
+        <div class="proj-cap">
+          <div class="client">ROG Phone 6 · ASUS</div>
+          <h3>Sketch</h3>
+          <div class="proj-desc">
+            <p>ROG Phone 6 專案發想階段的手繪與數位草圖集,記錄從機構開合結構、配件系統到整體造型語言的探索過程。</p>
+            <p>透過大量發散草圖收斂設計方向,在提案階段快速溝通造形可能性與機構邏輯。</p>
+          </div>
+          <div class="proj-tags"><span class="pill">草圖發想</span><span class="pill">造形探索</span><span class="pill">概念發散</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROTECTED -->
+  <section class="sec-tint" style="padding-top:clamp(56px,8vw,96px);">
+    <div class="wrap">
+      <h2 class="sec-title">受保護作品</h2>
+      <p class="sec-intro">以下為受保密協議限制的專案,需密碼解鎖後於線上檢視,完整內容於面試時展示。</p>
+      <div class="protected">
+        <div id="lockedBlock">
+          <div class="lock-gate" id="lockGate">
+            <div class="lk-icon">🔒</div>
+            <h3>此區塊需要密碼</h3>
+            <p>如需檢視受保護作品,請輸入密碼;或於面試時由本人展示。</p>
+            <div class="lock-form">
+              <input type="password" id="lockedPw" placeholder="輸入密碼" onkeydown="if(event.key==='Enter')checkLockedPw()">
+              <button onclick="checkLockedPw()">解鎖</button>
+            </div>
+            <div class="lock-error" id="lockedErr">密碼不正確,請再試一次。</div>
+          </div>
+          <div class="locked-content" id="lockedContent">
+            <div class="pw-cards">
+              <a class="pw-card" href="projects/solar-mesh.html">
+                <div class="pw-card-title">Solar Mesh</div>
+                <ul class="pw-card-points">
+                  <li>為美國西部廣闊偏遠地形打造,設計出僅需單人即可完成安裝的直覺架構,搭配太陽能自動追蹤機構與 9 小時續航力。</li>
+                  <li>四面斜坡狀頂棚輪廓兼具展現功能隱喻,並透過幾何設計防止鳥類停歇、減緩積冰積雪問題。</li>
+                </ul>
+                <div class="pw-card-cta">查看案例</div>
+              </a>
+              <a class="pw-card" href="projects/amplifi.html">
+                <div class="pw-card-title">AmpliFi Cinema Console</div>
+                <ul class="pw-card-points">
+                  <li>調校後方 I/O 排列,將 HDMI 埠改為垂直排列,與散熱團隊協調外殼高度,縮減主機側幅寬度。</li>
+                  <li>因 PC 外殼受熱膨脹易變形,材質交接處在原有 0.2mm 組裝公差之外,刻意多退 0.15mm 美工槽以隱藏機械公差;底部大面積橡膠墊吸收線材拔插動態剪力。</li>
+                </ul>
+                <div class="pw-card-cta">查看案例</div>
+              </a>
+              <a class="pw-card" href="projects/protected.html">
+                <div class="pw-card-title">Protected Project</div>
+                <ul class="pw-card-points">
+                  <li>受保密協議限制,無法於線上公開展示。</li>
+                  <li>包含主機板佈局、堆疊架構與系統情境設計等完整過程文件。</li>
+                </ul>
+                <div class="pw-card-cta">面試時展示</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="contact-title">Let's bridge design and manufacturing — together.</h2>
+      <div class="contact-links">
+        <a class="clink" href="mailto:m54ak.liao@gmail.com"><span>m54ak.liao@gmail.com</span><span class="clabel">Email</span></a>
+        <a class="clink" href="tel:+886910284773"><span>+886 910 284 773</span><span class="clabel">Phone</span></a>
+        <a class="clink" href="https://www.linkedin.com/in/kailiao929/" target="_blank" rel="noopener"><span>linkedin.com/in/kailiao929</span><span class="clabel">LinkedIn</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <footer>
+      <div>© 2026 Kuo Kai Liao</div>
+      <div>Taipei, Taiwan</div>
+    </footer>
+  </div>
+
+</main>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close">✕</div>
+  <img id="lightboxImg" src="" alt="放大檢視">
+</div>
+
+<script>
+  document.addEventListener('contextmenu', function(e){
+    if(e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO'){ e.preventDefault(); }
+  });
+  document.addEventListener('dragstart', function(e){
+    if(e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO'){ e.preventDefault(); }
+  });
+
+  function openLightbox(src){
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+
+  const LOCKED_PASSWORD = '4331';
+  function checkLockedPw(){
+    const input = document.getElementById('lockedPw');
+    const err = document.getElementById('lockedErr');
+    if(input.value === LOCKED_PASSWORD){
+      document.getElementById('lockGate').style.display = 'none';
+      document.getElementById('lockedContent').classList.add('unlocked');
+      err.style.display = 'none';
+    } else {
+      err.style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>
