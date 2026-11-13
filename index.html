@@ -389,8 +389,10 @@
       <!-- 05 G3 Touch -->
       <article class="proj">
         <div class="proj-media">
-          <img src="images/g3touch-1.jpg" alt="G3 Touch Enterprise 1">
-          <img src="images/g3touch-2.jpg" alt="G3 Touch Enterprise 2">
+          <div class="row2">
+            <img src="images/g3touch-1.jpg" alt="G3 Touch Enterprise 1">
+            <img src="images/g3touch-2.jpg" alt="G3 Touch Enterprise 2">
+          </div>
         </div>
         <div class="proj-cap">
           <div class="client">Ubiquiti</div>
@@ -483,7 +485,49 @@
   <section class="sec-tint" style="padding-top:clamp(56px,8vw,96px);">
     <div class="wrap">
       <h2 class="sec-title">受保護作品</h2>
-      <p class="sec-intro">部分專案受保密協議(NDA)限制,無法於線上公開展示;完整內容將於面試時親自呈現。</p>
+      <p class="sec-intro">以下為受保密協議限制的專案,需密碼解鎖後於線上檢視,完整內容於面試時展示。</p>
+      <div class="protected">
+        <div id="lockedBlock">
+          <div class="lock-gate" id="lockGate">
+            <div class="lk-icon">🔒</div>
+            <h3>此區塊需要密碼</h3>
+            <p>如需檢視受保護作品,請輸入密碼;或於面試時由本人展示。</p>
+            <div class="lock-form">
+              <input type="password" id="lockedPw" placeholder="輸入密碼" onkeydown="if(event.key==='Enter')checkLockedPw()">
+              <button onclick="checkLockedPw()">解鎖</button>
+            </div>
+            <div class="lock-error" id="lockedErr">密碼不正確,請再試一次。</div>
+          </div>
+          <div class="locked-content" id="lockedContent">
+            <div class="pw-cards">
+              <a class="pw-card" href="projects/solar-mesh.html">
+                <div class="pw-card-title">Solar Mesh</div>
+                <ul class="pw-card-points">
+                  <li>為美國西部廣闊偏遠地形打造,設計出僅需單人即可完成安裝的直覺架構,搭配太陽能自動追蹤機構與 9 小時續航力。</li>
+                  <li>四面斜坡狀頂棚輪廓兼具展現功能隱喻,並透過幾何設計防止鳥類停歇、減緩積冰積雪問題。</li>
+                </ul>
+                <div class="pw-card-cta">查看案例</div>
+              </a>
+              <a class="pw-card" href="projects/amplifi.html">
+                <div class="pw-card-title">AmpliFi Cinema Console</div>
+                <ul class="pw-card-points">
+                  <li>調校後方 I/O 排列,將 HDMI 埠改為垂直排列,與散熱團隊協調外殼高度,縮減主機側幅寬度。</li>
+                  <li>因 PC 外殼受熱膨脹易變形,材質交接處在原有 0.2mm 組裝公差之外,刻意多退 0.15mm 美工槽以隱藏機械公差;底部大面積橡膠墊吸收線材拔插動態剪力。</li>
+                </ul>
+                <div class="pw-card-cta">查看案例</div>
+              </a>
+              <a class="pw-card" href="projects/protected.html">
+                <div class="pw-card-title">Protected Project</div>
+                <ul class="pw-card-points">
+                  <li>受保密協議限制,無法於線上公開展示。</li>
+                  <li>包含主機板佈局、堆疊架構與系統情境設計等完整過程文件。</li>
+                </ul>
+                <div class="pw-card-cta">面試時展示</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
